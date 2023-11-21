@@ -1,0 +1,41 @@
+<h1>Product List</h1>
+<div class="container ">
+<div class="row">
+                <div class=" col  m-5   col-md-4"  *ngFor="let products of list">
+                    <div class="card"  >
+                        <img class="card-img-top " src="{{products.imageUrl}}" alt="Headphone" width ="100" height="300">
+                        <div class="card-body">
+                            <h5 class="card-title ">{{products.name}}</h5>
+                            <p class="card-text">Category : {{products.price |currency:'INR'}}</p>
+                            <p class="card-text "> Price : {{products.category.name}}</p>
+                            <p class="card-text "> Manufacturing Date :{{products.manufacturedDate |date}}</p>
+                        </div>
+                        <div class="card-footer ">
+                            <button class="btn btn-primary " [routerLink]="['/products/edit/',products.id]"> Edit</button>
+                            <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteModal" 
+                            (click)="setProductId(products.id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Confirm</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <p> Are you sure yoy want to delete this product</p>
+        </div>
+        <div class="modal-footer" >
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >No</button>
+          <button type="button" class="btn btn-danger " data-bs-dismiss="modal" (click)="delete()">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    

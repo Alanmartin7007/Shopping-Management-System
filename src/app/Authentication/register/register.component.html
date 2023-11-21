@@ -1,0 +1,41 @@
+<h1>Register</h1>
+<form [formGroup]="form"(ngSubmit)="submit()" >
+        
+   
+    <div class="form-group">
+        <label class="form-label " for="name"> Name</label>
+        <input class="form-control " type="text" id="name" formControlName="name">
+        <div *ngIf="form.hasError('required','name')&&(form.controls['name'].touched || form.controls['name'].dirty)"
+            class="alert  alert-danger " role="alert">
+            Name is required</div>
+    </div>
+    <div class="form-group">
+        <label class="form-label " for="email">Email</label>
+        <input class="form-control " type="email" id="email" formControlName="email">
+        <div *ngIf="form.hasError('required','email')&&(form.controls['email'].touched || form.controls['email'].dirty)"
+            class="alert  alert-danger " role="alert">
+            Email is required</div>
+    </div>
+    <div class="form-group">
+        <label class="form-label " for="password">Password</label>
+        <input class="form-control " type="password" id="password" formControlName="password">
+        <div *ngIf="form.hasError('required','password')&&(form.controls['password'].touched || form.controls['password'].dirty)"
+            class="alert  alert-danger " role="alert">
+            password is required</div>
+    </div>
+    <div class="form-group">
+        <label class="form-label " for="dateofbirth">DOB</label>
+        <input class="form-control " type="date" id="dateofbirth" formControlName="dateofbirth">
+        <div *ngIf="form.hasError('required','dateofbirth')&&(form.controls['dateofbirth'].touched || form.controls['dateofbirth'].dirty)"
+            class="alert  alert-danger " role="alert">
+            DOB is required</div>
+    </div>
+    <div>
+        <label class="form-label " for="role">Role</label>
+        <input class="form-control " type="number" id="role" formControlName="role">
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary " [disabled]="form.invalid" type="submit" value="Register">
+        <input class="btn btn-secondary"   type="submit" value = "Login" [routerLink]="['/login']">
+    </div>
+</form>

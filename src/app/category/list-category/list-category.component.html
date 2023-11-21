@@ -1,0 +1,22 @@
+<h1>Category List</h1>
+<table class="table table-striped ">
+    <thead>
+        <th>id</th>
+        <th>Name</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of list">
+            <td>
+                {{category.id}}
+            </td>
+            <td>
+                {{category.name}}
+            </td>
+            <td>
+                <button class="btn btn-primary " [routerLink]="['/categories/edit/',category.id]"> Edit</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<div class="card-footer ">
